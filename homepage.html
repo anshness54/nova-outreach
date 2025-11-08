@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Outreach - Wellness and Care</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Didot', 'Bodoni MT', 'Garamond', serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1; /* Pushes footer to bottom */
+        }
+
+
+        /* Navigation */
+        nav {
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #ffffff;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo-nav:hover {
+            color: #cccccc;
+            transform: translateX(5px);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 50%;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+
+        /* Page container with smooth transitions */
+        .page {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            width: 100%;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .page.active {
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+        }
+
+        /* Hero Section with darker nova effect and more stars */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: 
+                radial-gradient(3px 3px at 15% 25%, #ffffff, transparent),
+                radial-gradient(2px 2px at 45% 15%, #ffffff, transparent),
+                radial-gradient(3px 3px at 75% 35%, #ffffff, transparent),
+                radial-gradient(2px 2px at 25% 55%, #ffffff, transparent),
+                radial-gradient(2px 2px at 85% 65%, #ffffff, transparent),
+                radial-gradient(3px 3px at 55% 75%, #ffffff, transparent),
+                radial-gradient(2px 2px at 35% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 65% 45%, #ffffff, transparent),
+                radial-gradient(3px 3px at 5% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 95% 25%, #ffffff, transparent),
+                radial-gradient(2px 2px at 50% 5%, #ffffff, transparent),
+                radial-gradient(3px 3px at 80% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 20% 75%, #ffffff, transparent),
+                radial-gradient(2px 2px at 60% 55%, #ffffff, transparent),
+                radial-gradient(3px 3px at 40% 35%, #ffffff, transparent),
+                radial-gradient(2px 2px at 10% 65%, #ffffff, transparent),
+                radial-gradient(2px 2px at 70% 15%, #ffffff, transparent),
+                radial-gradient(3px 3px at 90% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 30% 25%, #ffffff, transparent),
+                radial-gradient(2px 2px at 55% 65%, #ffffff, transparent),
+                radial-gradient(2px 2px at 12% 35%, #ffffff, transparent),
+                radial-gradient(3px 3px at 68% 75%, #ffffff, transparent),
+                radial-gradient(2px 2px at 38% 55%, #ffffff, transparent),
+                radial-gradient(2px 2px at 82% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 48% 85%, #ffffff, transparent),
+                radial-gradient(3px 3px at 22% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 72% 65%, #ffffff, transparent),
+                radial-gradient(2px 2px at 58% 25%, #ffffff, transparent),
+                radial-gradient(2px 2px at 88% 55%, #ffffff, transparent),
+                radial-gradient(3px 3px at 32% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 78% 95%, #ffffff, transparent),
+                radial-gradient(2px 2px at 18% 85%, #ffffff, transparent),
+                radial-gradient(3px 3px at 62% 35%, #ffffff, transparent),
+                radial-gradient(2px 2px at 42% 65%, #ffffff, transparent),
+                radial-gradient(2px 2px at 92% 75%, #ffffff, transparent),
+                radial-gradient(2px 2px at 8% 15%, #ffffff, transparent),
+                radial-gradient(3px 3px at 52% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 28% 35%, #ffffff, transparent),
+                radial-gradient(2px 2px at 78% 55%, #ffffff, transparent),
+                radial-gradient(2px 2px at 38% 75%, #ffffff, transparent),
+                radial-gradient(3px 3px at 88% 25%, #ffffff, transparent),
+                radial-gradient(2px 2px at 18% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 62% 65%, #ffffff, transparent),
+                radial-gradient(2px 2px at 48% 15%, #ffffff, transparent),
+                radial-gradient(3px 3px at 72% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 32% 55%, #ffffff, transparent),
+                radial-gradient(2px 2px at 92% 35%, #ffffff, transparent),
+                radial-gradient(2px 2px at 12% 75%, #ffffff, transparent),
+                radial-gradient(3px 3px at 58% 95%, #ffffff, transparent),
+                radial-gradient(2px 2px at 68% 5%, #ffffff, transparent),
+                linear-gradient(to bottom, #000000 0%, #0a0a0a 10%, #1a1a1a 25%, #2a2a2a 40%, #3a3a3a 55%, #5a5a5a 70%, #8a8a8a 85%, #d0d0d0 95%, #f0f0f0 98%, #ffffff 100%);
+            background-size: 
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                100% 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: twinkleHero 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkleHero {
+            0%, 100% {
+                background-position: 
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%;
+            }
+            50% {
+                background-position: 
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    0% 0%;
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            letter-spacing: 8px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #ffffff;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .star-divider {
+            font-size: 2rem;
+            color: #ffffff;
+            margin: 2rem 0;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .star-divider:hover {
+            opacity: 1;
+        }
+
+        /* Content Sections with smooth flow */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #1a1a1a, transparent);
+        }
+
+        .about-content {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #333;
+        }
+
+        /* Sub Teams Grid with smooth hover */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .team-card:hover::before {
+            left: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: #d0d0d0;
+        }
+
+        .team-card h3 {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .team-card:hover h3 {
+            color: #333;
+        }
+
+        .team-card p {
+            color: #555;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .team-card:hover p {
+            color: #333;
+        }
+
+        /* Senior Story Project - Featured with gradient */
+        .featured-project {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-project::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .featured-project h2 {
+            color: #ffffff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-content p {
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        .project-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-box {
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .highlight-box:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .highlight-box h4 {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .highlight-box p {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+
+        /* Subpage Hero with gradient nova effect and stars */
+        .subpage-hero {
+            margin-top: 80px;
+            min-height: 50vh;
+            background: 
+                radial-gradient(3px 3px at 20% 30%, #ffffff, transparent),
+                radial-gradient(3px 3px at 60% 70%, #ffffff, transparent),
+                radial-gradient(2px 2px at 50% 50%, #ffffff, transparent),
+                radial-gradient(2px 2px at 80% 10%, #ffffff, transparent),
+                radial-gradient(3px 3px at 90% 60%, #ffffff, transparent),
+                radial-gradient(2px 2px at 33% 80%, #ffffff, transparent),
+                radial-gradient(2px 2px at 15% 60%, #ffffff, transparent),
+                radial-gradient(3px 3px at 70% 40%, #ffffff, transparent),
+                radial-gradient(2px 2px at 25% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 85% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 45% 25%, #ffffff, transparent),
+                radial-gradient(3px 3px at 10% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 65% 15%, #ffffff, transparent),
+                radial-gradient(2px 2px at 40% 65%, #ffffff, transparent),
+                radial-gradient(3px 3px at 95% 35%, #ffffff, transparent),
+                radial-gradient(2px 2px at 55% 85%, #ffffff, transparent),
+                radial-gradient(2px 2px at 75% 25%, #ffffff, transparent),
+                radial-gradient(3px 3px at 35% 45%, #ffffff, transparent),
+                radial-gradient(2px 2px at 88% 48%, #ffffff, transparent),
+                radial-gradient(2px 2px at 12% 28%, #ffffff, transparent),
+                radial-gradient(2px 2px at 42% 8%, #ffffff, transparent),
+                radial-gradient(3px 3px at 68% 88%, #ffffff, transparent),
+                radial-gradient(2px 2px at 22% 68%, #ffffff, transparent),
+                radial-gradient(2px 2px at 92% 18%, #ffffff, transparent),
+                radial-gradient(2px 2px at 8% 78%, #ffffff, transparent),
+                radial-gradient(3px 3px at 48% 58%, #ffffff, transparent),
+                radial-gradient(2px 2px at 78% 68%, #ffffff, transparent),
+                radial-gradient(2px 2px at 38% 38%, #ffffff, transparent),
+                radial-gradient(2px 2px at 58% 18%, #ffffff, transparent),
+                radial-gradient(3px 3px at 18% 88%, #ffffff, transparent),
+                radial-gradient(2px 2px at 28% 52%, #ffffff, transparent),
+                radial-gradient(2px 2px at 72% 78%, #ffffff, transparent),
+                radial-gradient(3px 3px at 52% 32%, #ffffff, transparent),
+                radial-gradient(2px 2px at 82% 58%, #ffffff, transparent),
+                radial-gradient(2px 2px at 32% 22%, #ffffff, transparent),
+                radial-gradient(2px 2px at 62% 92%, #ffffff, transparent),
+                radial-gradient(3px 3px at 92% 72%, #ffffff, transparent),
+                radial-gradient(2px 2px at 16% 42%, #ffffff, transparent),
+                radial-gradient(2px 2px at 46% 72%, #ffffff, transparent),
+                radial-gradient(2px 2px at 86% 32%, #ffffff, transparent),
+                radial-gradient(3px 3px at 26% 62%, #ffffff, transparent),
+                radial-gradient(2px 2px at 66% 52%, #ffffff, transparent),
+                radial-gradient(2px 2px at 36% 12%, #ffffff, transparent),
+                radial-gradient(2px 2px at 76% 82%, #ffffff, transparent),
+                radial-gradient(3px 3px at 56% 42%, #ffffff, transparent),
+                linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 15%, #2a2a2a 30%, #4a4a4a 50%, #7a7a7a 70%, #b0b0b0 85%, #e8e8e8 95%, #f8f8f8 98%, #ffffff 100%);
+            background-size: 
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                200% 200%, 200% 200%, 200% 200%, 200% 200%, 200% 200%,
+                100% 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                background-position: 
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%,
+                    0% 0%;
+            }
+            50% {
+                background-position: 
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    0% 0%;
+            }
+        }
+
+        .subpage-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center top, rgba(255,255,255,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .subpage-hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .subpage-content {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .subpage-content h3 {
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 3rem 0 1.5rem 0;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .subpage-content p {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .subpage-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .subpage-content ul li {
+            padding: 1rem 0 1rem 2rem;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.05rem;
+            color: #555;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .subpage-content ul li:hover {
+            padding-left: 2.5rem;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+
+        .subpage-content ul li:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #1a1a1a;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .subpage-content ul li:hover:before {
+            opacity: 1;
+        }
+
+        /* Team Members Section with smooth background */
+        .team-members-section {
+            background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 50%, #fafafa 100%);
+            padding: 5rem 2rem;
+            margin: 3rem 0 0 0;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .team-members-section h3 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .leaders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .member-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            text-align: center;
+            border: 1px solid #e8e8e8;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .member-card:hover::before {
+            opacity: 1;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #d0d0d0;
+        }
+
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #1a1a1a;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .member-card:hover .member-photo {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .leader-card .member-photo {
+            width: 180px;
+            height: 180px;
+            border: 4px solid #1a1a1a;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-initials {
+            font-size: 3rem;
+            color: #1a1a1a;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .leader-card .member-initials {
+            font-size: 3.5rem;
+        }
+
+        .member-card h4 {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .member-card:hover h4 {
+            color: #333;
+        }
+
+        .member-role {
+            font-size: 0.95rem;
+            color: #666;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .member-card:hover .member-role {
+            color: #1a1a1a;
+        }
+
+        .member-bio {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .section-label {
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            position: relative;
+        }
+
+        .section-label::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: #1a1a1a;
+            opacity: 0.3;
+        }
+
+        /* Footer with gradient */
+        footer {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer p {
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        footer p:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .subpage-hero h1 {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+/* Fix white space issue */
+        html, body {
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Show only current page */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Proper footer placement */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo-nav" onclick="showPage('home')">Nova Outreach</div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')">Home</a></li>
+                <li><a onclick="showPage('about')">About</a></li>
+                <li><a onclick="showPage('teams')">Teams</a></li>
+                <li><a onclick="showPage('senior-story')">Senior Story Project</a></li>
+                <li><a onclick="showPage('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Nova Outreach</h1>
+                <div class="star-divider">✦</div>
+                <p class="tagline">Wellness and Care</p>
+                <p style="font-size: 1.1rem; color: #d0d0d0; max-width: 600px; margin: 0 auto;">
+                    A non-profit organization dedicated to bridging generations and promoting wellness through meaningful connections and community service.
+                </p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section>
+            <h2>Who We Are</h2>
+            <div class="about-content">
+                <p>Nova Outreach is a student-led non-profit organization committed to making a positive impact in our community. We believe in the power of connection, storytelling, and service to create meaningful change. Through our various initiatives, we work to bridge generational gaps, preserve valuable wisdom, and promote mental and emotional wellbeing for all members of our community.</p>
+                <div class="star-divider">✦</div>
+                <p>Our mission is to foster wellness and care through innovative programs that connect students with seniors, creating lasting relationships and preserving the rich tapestry of life experiences that might otherwise be forgotten.</p>
+            </div>
+        </section>
+
+        <!-- Teams Section -->
+        <section>
+            <h2>Our Teams</h2>
+            <div class="teams-grid">
+                <div class="team-card" onclick="showPage('media')">
+                    <h3>Media Team</h3>
+                    <p>Manages our digital presence, creates compelling content, and shares our mission through various media platforms to inspire and engage our community.</p>
+                </div>
+                <div class="team-card" onclick="showPage('games')">
+                    <h3>Games Team</h3>
+                    <p>Develops interactive activities and recreational programs that bring joy and cognitive stimulation to seniors while fostering intergenerational bonds.</p>
+                </div>
+                <div class="team-card" onclick="showPage('photography')">
+                    <h3>Photography Team</h3>
+                    <p>Captures the essence of our events and preserves precious moments through visual storytelling that honors our seniors and their experiences.</p>
+                </div>
+                <div class="team-card" onclick="showPage('musical')">
+                    <h3>Musical Team</h3>
+                    <p>Brings the healing power of music to retirement homes through performances and interactive sessions that uplift spirits and create connections.</p>
+                </div>
+                <div class="team-card" onclick="showPage('outreach')">
+                    <h3>Outreach Team</h3>
+                    <p>Connects with seniors and retirement homes to provide them with the connections of Nova Outreach.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Senior Story Project - Featured Section -->
+        <section class="featured-project">
+            <h2>Senior Story Project</h2>
+            <div class="project-content">
+                <p>The Senior Story Project is our flagship initiative that creates meaningful connections between students and seniors in retirement homes. Through thoughtful conversations and careful documentation, we record and preserve the life stories, memories, and wisdom of our senior community members.</p>
+                
+                <div class="project-highlights">
+                    <div class="highlight-box">
+                        <h4>Preserve Wisdom</h4>
+                        <p>Capture invaluable life experiences and lessons from seniors before they're lost to time.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h4>Promote Wellbeing</h4>
+                        <p>Foster mental and emotional health through meaningful intergenerational conversations and connections.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h4>Create Legacy</h4>
+                        <p>Compile stories into digital book series that honor seniors and inspire future generations.</p>
+                    </div>
+                </div>
+
+                <div class="star-divider">✦</div>
+
+                <p style="margin-top: 3rem;">Each story collected becomes part of a growing digital library—a series of books that celebrate the rich tapestry of human experience. These publications serve as lasting tributes to our seniors while providing students with perspective, empathy, and wisdom that can only come from lived experience.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <div class="subpage-hero">
+            <h1>About Nova</h1>
+        </div>
+        <div class="subpage-content">
+            <p>Nova Outreach was founded on the belief that every generation has something valuable to offer, and that the connections between young and old can transform communities. We are a student-led non-profit organization dedicated to wellness, care, and preserving the wisdom of our elders.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>Our Mission</h3>
+            <p>To bridge generational divides through meaningful programs that promote mental and emotional wellbeing, preserve life stories and memories, and create lasting connections between students and seniors in our community.</p>
+
+            <h3>Our Vision</h3>
+            <p>A world where every senior's story is valued and preserved, where intergenerational connections flourish, and where both young and old thrive through shared experiences and mutual respect.</p>
+
+            <h3>Our Values</h3>
+            <ul>
+                <li>Compassion and empathy in all our interactions</li>
+                <li>Respect for the wisdom and experiences of our seniors</li>
+                <li>Commitment to preserving stories and memories</li>
+                <li>Dedication to promoting mental and emotional wellbeing</li>
+                <li>Excellence in service and community impact</li>
+            </ul>
+
+            <div class="star-divider">✦</div>
+
+            <h3>Why Nova?</h3>
+            <p>The name "Nova" represents a new beginning, a bright light, and a powerful force for positive change. Just as a nova illuminates the cosmos, we aim to shine light on the invaluable stories and experiences of our senior community while bringing joy and purpose to all involved.</p>
+        </div>
+    </div>
+
+    <!-- TEAMS PAGE -->
+    <div id="teams" class="page">
+        <div class="subpage-hero">
+            <h1>Our Teams</h1>
+        </div>
+        <div class="subpage-content">
+            <p>Nova Outreach is powered by four dedicated teams, each bringing unique skills and passion to our mission. Together, we create comprehensive programs that enrich the lives of seniors and students alike.</p>
+
+            <div class="star-divider">✦</div>
+
+            <div class="teams-grid">
+                <div class="team-card" onclick="showPage('media')">
+                    <h3>Media Team</h3>
+                    <p>Manages our digital presence, creates compelling content, and shares our mission through various media platforms to inspire and engage our community.</p>
+                </div>
+                <div class="team-card" onclick="showPage('games')">
+                    <h3>Games Team</h3>
+                    <p>Develops interactive activities and recreational programs that bring joy and cognitive stimulation to seniors while fostering intergenerational bonds.</p>
+                </div>
+                <div class="team-card" onclick="showPage('photography')">
+                    <h3>Photography Team</h3>
+                    <p>Captures the essence of our events and preserves precious moments through visual storytelling that honors our seniors and their experiences.</p>
+                </div>
+                <div class="team-card" onclick="showPage('musical')">
+                    <h3>Musical Team</h3>
+                    <p>Brings the healing power of music to retirement homes through performances and interactive sessions that uplift spirits and create connections.</p>
+                </div>
+                <div class="team-card" onclick="showPage('outreach')">
+                    <h3>Outreach Team</h3>
+                    <p>Connects with seniors and retirement homes to provide them with the connections of Nova Outreach.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEDIA TEAM PAGE -->
+    <div id="media" class="page">
+        <div class="subpage-hero">
+            <h1>Media Team</h1>
+        </div>
+        <div class="subpage-content">
+            <p>The Media Team is the voice of Nova Outreach, sharing our mission and impact with the world. Through strategic content creation and digital storytelling, we amplify the voices of seniors and inspire others to join our cause.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>What We Do</h3>
+            <ul>
+                <li>Manage social media platforms to share stories and updates</li>
+                <li>Create engaging video content documenting our programs and events</li>
+                <li>Design promotional materials and marketing campaigns</li>
+                <li>Write blog posts and articles featuring senior stories</li>
+                <li>Develop newsletters to keep our community informed</li>
+                <li>Coordinate with other teams to document their activities</li>
+            </ul>
+
+            <h3>Our Impact</h3>
+            <p>Through thoughtful media strategies, we've reached thousands of people, raising awareness about senior wellness and inspiring other communities to start similar initiatives. Our content celebrates the wisdom of our elders while demonstrating the transformative power of intergenerational connections.</p>
+
+            <h3>Skills We Value</h3>
+            <p>Content writing, social media management, video editing, graphic design, photography, storytelling, and a passion for amplifying voices that deserve to be heard.</p>
+
+            <div class="star-divider">✦</div>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-members-section">
+            <div class="subpage-content">
+                <h3>Our Team</h3>
+                
+                <div class="section-label">Leadership</div>
+                <div class="leaders-grid">
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">MN</div>
+                        </div>
+                        <h4>Matthew Nguyen</h4>
+                        <div class="member-role">Media Team Leader</div>
+                        <p class="member-bio"></p>
+                    </div>
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">DN</div>
+                        </div>
+                        <h4>Darshil Naik</h4>
+                        <div class="member-role">Media Team Leader</div>
+                        <p class="member-bio"></p>
+                    </div>
+                </div>
+
+                <div class="section-label">Team Members</div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">EY</div>
+                        </div>
+                        <h4>Ethan Yun</h4>
+                        <div class="member-role"></div>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">AI</div>
+                        </div>
+                        <h4>Ansh Itchhaporia</h4>
+                        <div class="member-role"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAMES TEAM PAGE -->
+    <div id="games" class="page">
+        <div class="subpage-hero">
+            <h1>Games Team</h1>
+        </div>
+        <div class="subpage-content">
+            <p>The Games Team brings joy, laughter, and cognitive stimulation to retirement homes through carefully designed activities and interactive programs. We believe that play is ageless and that games can build bridges between generations.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>What We Do</h3>
+            <ul>
+                <li>Organize weekly game sessions at partner retirement homes</li>
+                <li>Develop age-appropriate and accessible game programs</li>
+                <li>Facilitate classic games like bingo, trivia, and card games</li>
+                <li>Create innovative intergenerational activities</li>
+                <li>Adapt games to accommodate various physical and cognitive abilities</li>
+                <li>Host special game tournaments and themed event days</li>
+            </ul>
+
+            <h3>Our Impact</h3>
+            <p>Game sessions provide more than entertainment—they offer cognitive stimulation, social interaction, and emotional connection. Many seniors report reduced feelings of loneliness and increased mental sharpness. Students gain patience, empathy, and an appreciation for the wisdom and humor of older generations.</p>
+
+            <h3>Skills We Value</h3>
+            <p>Event planning, interpersonal communication, creativity in activity design, patience, enthusiasm, and an understanding of senior care and accessibility needs.</p>
+
+            <div class="star-divider">✦</div>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-members-section">
+            <div class="subpage-content">
+                <h3>Our Team</h3>
+                
+                <div class="section-label">Leadership</div>
+                <div class="leaders-grid">
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">TL</div>
+                        </div>
+                        <h4>Huu Pham</h4>
+                        <div class="member-role">Games Team Leader</div>
+                    </div>
+                </div>
+
+                <div class="section-label">Team Members</div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M1</div>
+                        </div>
+                        <h4>Matthew Huang</h4>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M2</div>
+                        </div>
+                        <h4>Darin Kim</h4>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M3</div>
+                        </div>
+                        <h4>Grace Kim</h4>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M4</div>
+                        </div>
+                        <h4>Elisa Han</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHOTOGRAPHY TEAM PAGE -->
+    <div id="photography" class="page">
+        <div class="subpage-hero">
+            <h1>Photography Team</h1>
+        </div>
+        <div class="subpage-content">
+            <p>The Photography Team preserves the precious moments of our programs through powerful visual storytelling. Every photograph we take honors the dignity, joy, and wisdom of the seniors we serve while documenting the meaningful connections being formed.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>What We Do</h3>
+            <ul>
+                <li>Document all Nova Outreach events and programs</li>
+                <li>Create portrait series celebrating individual seniors</li>
+                <li>Capture candid moments of intergenerational connection</li>
+                <li>Build visual archives for the Senior Story Project</li>
+                <li>Produce photo galleries for exhibitions and publications</li>
+                <li>Collaborate with Media Team on promotional content</li>
+            </ul>
+
+            <h3>Our Impact</h3>
+            <p>Our photographs do more than document events—they tell stories of dignity, resilience, and joy. These images become treasured keepsakes for seniors and their families, while also serving as powerful tools to inspire community support and showcase the impact of our work.</p>
+
+            <h3>Skills We Value</h3>
+            <p>Photography technique, photo editing, visual storytelling, sensitivity in working with seniors, ethical photography practices, and an eye for capturing authentic emotional moments.</p>
+
+            <div class="star-divider">✦</div>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-members-section">
+            <div class="subpage-content">
+                <h3>Our Team</h3>
+                
+                <div class="section-label">Leadership</div>
+                <div class="leaders-grid">
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">AK</div>
+                        </div>
+                        <h4>Akber Kazmi</h4>
+                        <div class="member-role">Photography Team Leader</div>
+                    </div>
+                </div>
+
+                <div class="section-label">Team Members</div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">TS</div>
+                        </div>
+                        <h4>Taaha Siddiqi</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MUSICAL TEAM PAGE -->
+    <div id="musical" class="page">
+        <div class="subpage-hero">
+            <h1>Musical Team</h1>
+        </div>
+        <div class="subpage-content">
+            <p>The Musical Team harnesses the universal language of music to bring joy, comfort, and connection to retirement homes. Through live performances and interactive music sessions, we create moments of beauty and emotional resonance that transcend age.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>What We Do</h3>
+            <ul>
+                <li>Perform live music at retirement homes and community events</li>
+                <li>Lead sing-along sessions featuring classic songs seniors love</li>
+                <li>Organize small ensemble performances (piano, guitar, vocals, etc.)</li>
+                <li>Create personalized musical experiences based on senior preferences</li>
+                <li>Facilitate music therapy activities that promote wellbeing</li>
+                <li>Collaborate with seniors to share their musical memories and favorites</li>
+            </ul>
+
+            <h3>Our Impact</h3>
+            <p>Music has a profound effect on memory, mood, and emotional wellbeing. Our performances often spark joy, trigger cherished memories, and create shared moments of beauty. Seniors who may be withdrawn often come alive during music sessions, singing along or sharing stories about songs from their past.</p>
+
+            <h3>Skills We Value</h3>
+            <p>Musical performance ability (voice or instrument), knowledge of classic songs and standards, adaptability, emotional sensitivity, and understanding of music's therapeutic benefits for seniors.</p>
+
+            <div class="star-divider">✦</div>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-members-section">
+            <div class="subpage-content">
+                <h3>Our Team</h3>
+                
+                <div class="section-label">Leadership</div>
+                <div class="leaders-grid">
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">TL</div>
+                        </div>
+                        <h4>Jaden Cakranata</h4>
+                        <div class="member-role">Musical Team Leader</div>
+                    </div>
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">TL</div>
+                        </div>
+                        <h4>Hayoung Choi</h4>
+                        <div class="member-role">Musical Team Leader</div>
+                    </div>
+                </div>
+
+                <div class="section-label">Team Members</div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M1</div>
+                        </div>
+                        <h4>Daniel Park</h4>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M2</div>
+                        </div>
+                        <h4>Shannon Renjy</h4>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M3</div>
+                        </div>
+                        <h4>Yoel</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- OUTREACH TEAM PAGE -->
+    <div id="outreach" class="page">
+        <div class="subpage-hero">
+            <h1>Outreach Team</h1>
+        </div>
+        <div class="subpage-content">
+            <p>The Outreach Team extends compassion and care to our community's seniors through meaningful engagement and service. By organizing visits, conversations, and creative activities in retirement homes, we foster companionship, understanding, and lasting human connection. Our goal is to bring warmth, empathy, and a sense of belonging to those who need it most.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>What We Do</h3>
+            <ul>
+                <li>Plan and coordinate visits to local retirement homes and senior centers</li>
+                <li>Engage residents through meaningful one-on-one and group conversations</li>
+                <li>Organize games, crafts, and creative activities that encourage interaction</li>
+                <li>Deliver small gifts, cards, or care packages to brighten seniors' days</li>
+                <li>Support seasonal and holiday events that bring the community together</li>
+                <li>Build lasting relationships that foster compassion, respect, and connection</li>
+            </ul>
+
+            <h3>Our Impact</h3>
+            <p>Meaningful human connection has a powerful impact on emotional wellbeing and quality of life. Our outreach visits bring warmth, companionship, and conversation to seniors who may feel isolated. Through shared stories, laughter, and acts of kindness, we help residents feel seen, valued, and cared for. Even simple interactions can brighten someone's day and remind them that they are not alone.</p>
+
+            <h3>Skills We Value</h3>
+            <p>Strong communication and empathy, patience, active listening, reliability, and a genuine desire to connect with and support seniors. Creativity in planning engaging activities and an understanding of the importance of companionship and compassion in improving wellbeing.</p>
+
+            <div class="star-divider">✦</div>
+        </div>
+
+        <!-- Team Members Section -->
+        <div class="team-members-section">
+            <div class="subpage-content">
+                <h3>Our Team</h3>
+                
+                <div class="section-label">Leadership</div>
+                <div class="leaders-grid">
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">TL</div>
+                        </div>
+                        <h4>Mayan Shah</h4>
+                        <div class="member-role">Outreach Team Leader</div>
+                    </div>
+                    <div class="member-card leader-card">
+                        <div class="member-photo">
+                            <div class="member-initials">TL</div>
+                        </div>
+                        <h4>Arush Seth</h4>
+                        <div class="member-role">Outreach Team Leader</div>
+                    </div>
+                </div>
+
+                <div class="section-label">Team Members</div>
+                <div class="members-grid">
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M1</div>
+                        </div>
+                        <h4>Cardin</h4>
+                    </div>
+                    <div class="member-card">
+                        <div class="member-photo">
+                            <div class="member-initials">M2</div>
+                        </div>
+                        <h4>Andrew Kim</h4>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SENIOR STORY PROJECT PAGE -->
+    <div id="senior-story" class="page">
+        <div class="subpage-hero">
+            <h1>Senior Story Project</h1>
+        </div>
+        <div class="subpage-content">
+            <p>The Senior Story Project is the heart of Nova Outreach—a transformative initiative that connects students with seniors to record and preserve life stories, memories, and wisdom. Through thoughtful conversations, we create a digital legacy that honors our elders and enriches future generations.</p>
+
+            <div class="star-divider">✦</div>
+
+            <h3>Our Mission</h3>
+            <p>To preserve the invaluable life experiences, wisdom, and memories of seniors in retirement homes while promoting mental and emotional wellbeing through meaningful intergenerational conversations.</p>
+
+            <h3>How It Works</h3>
+            <ul>
+                <li>Students are paired with senior participants at partner retirement homes</li>
+                <li>Regular conversation sessions are scheduled over several weeks</li>
+                <li>Trained students conduct thoughtful interviews using story prompts</li>
+                <li>Sessions are recorded (with permission) and carefully transcribed</li>
+                <li>Stories are edited and compiled into beautifully designed digital books</li>
+                <li>Each senior receives a personal copy of their story</li>
+                <li>Stories are added to our growing digital library series</li>
+            </ul>
+
+            <h3>The Impact</h3>
+            <p><strong>For Seniors:</strong> The project provides validation, purpose, and social connection. Sharing life stories has been shown to reduce feelings of loneliness, improve mood, and enhance overall wellbeing. Many participants report feeling heard and valued in ways they haven't experienced in years.</p>
+            
+            <p><strong>For Students:</strong> Participants gain perspective, empathy, and wisdom that can only come from lived experience. Students develop better listening skills, historical understanding, and appreciation for different generations. Many form lasting bonds with their senior partners.</p>
+
+            <p><strong>For Families:</strong> The digital books become treasured family heirlooms, preserving stories and memories that might otherwise be lost. Families gain insight into their loved ones' experiences and feel gratitude for the care and attention given.</p>
+
+            <h3>The Digital Book Series</h3>
+            <p>Each collected story becomes part of our growing digital library—a series of books that celebrate the rich tapestry of human experience. These publications serve multiple purposes: they honor seniors, educate younger generations, preserve historical perspectives, and demonstrate the value of intergenerational connection.</p>
+
+            <h3>Join Us</h3>
+            <p>Whether you're a student interested in becoming a story collector, a senior who wants to share your story, or a retirement home interested in partnering with us, we'd love to hear from you. Together, we can ensure that no story is forgotten.</p>
+
+            <div class="star-divider">✦</div>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <div class="subpage-hero">
+            <h1>Get Involved</h1>
+        </div>
+        <div class="subpage-content">
+            <div class="about-content">
+                <p>Nova Outreach welcomes students, seniors, community partners, and supporters who share our vision of bridging generations through meaningful connection and service.</p>
+
+                <div class="star-divider">✦</div>
+
+                <h3 style="text-align: center;">Ways to Get Involved</h3>
+                
+                <div style="margin: 3rem 0;">
+                    <h3>For Students</h3>
+                    <p>Join one of our four teams or participate in the Senior Story Project. No experience necessary—just a compassionate heart and willingness to learn. We provide training and ongoing support for all volunteers.</p>
+
+                    <h3>For Seniors</h3>
+                    <p>Share your story with us through the Senior Story Project. Your experiences, memories, and wisdom deserve to be preserved and celebrated. We'd be honored to listen and document your unique journey.</p>
+
+                    <h3>For Retirement Homes</h3>
+                    <p>Partner with Nova Outreach to bring our programs to your facility. We offer the Senior Story Project, music performances, game sessions, and more—all designed to promote wellbeing and create joyful connections.</p>
+
+                    <h3>For Community Supporters</h3>
+                    <p>Support our mission through donations, spreading awareness, or connecting us with potential partners. Every contribution helps us expand our reach and impact more lives.</p>
+                </div>
+
+                <div class="star-divider">✦</div>
+
+                <p style="margin-top: 3rem; font-size: 1.3rem; letter-spacing: 2px;">Join us in preserving wisdom and promoting wellness.</p>
+                
+                <p style="margin-top: 2rem; color: #666;">Together, we can create meaningful connections that enrich lives across generations.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Nova Outreach. All Rights Reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">A Non-Profit Organization</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages with fade out
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                if (page.classList.contains('active')) {
+                    page.classList.remove('active');
+                }
+            });
+            
+            // Small delay for smooth transition
+            setTimeout(() => {
+                // Show selected page with fade in
+                document.getElementById(pageId).classList.add('active');
+            }, 100);
+            
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Enhanced scroll effect for nav
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.scrollY;
+            
+            if (currentScroll > 100) {
+                nav.style.background = 'rgba(26, 26, 26, 0.98)';
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.2)';
+            } else {
+                nav.style.background = 'rgba(26, 26, 26, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Add smooth scroll behavior for internal links
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe sections for fade-in animation
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
+                        
